@@ -31,6 +31,24 @@ public class MainActivity extends Activity {
     startService(intent);
   }
 
+  //Stop the music when the application is sent to the background
+  @Override
+  protected void onPause(){
+    super.onPause();
+    Intent intent = new Intent(this, BackgroundSoundService.class);
+    intent.putExtra("play", false);
+    startService(intent);
+  }
+
+  //Resume the music to its state before the application was send to the background
+  @Override
+  protected void onResume(){
+    super.onResume();
+    Intent intent = new Intent(this, BackgroundSoundService.class);
+    intent.putExtra("play", play);
+    startService(intent);
+  }
+
   public void onClickPlay(View view){
     Log.v(LOG_TAG, "Play");
     Intent intent = new Intent(this, BlindGameActivity.class);

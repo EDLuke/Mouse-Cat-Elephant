@@ -167,13 +167,6 @@ public class BlindGameActivity extends Activity {
       opponentAnimal = -1;
     }
 
-    private void resetGame(){
-      resetRound();
-      playerWinCount = 0;
-      opponentWinCount = 0;
-    }
-
-
     @Override
     protected void onDraw(Canvas canvas){
       //Draw background
